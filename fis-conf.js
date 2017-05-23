@@ -15,7 +15,6 @@ fis.hook('commonjs', {
         component: 'src/component',
         page: 'src/page',
         vue: 'node_modules/vue/dist/vue.js', // 默认引用的vue.common.js不包含template编译
-        // jquery: 'node_modules/jquery/dist/jquery.js'
     },
     extList: ['.js', '.jsx', '.es']
 });
@@ -49,11 +48,11 @@ fis.match('/dep/**', {
     release: '/static/$0'
 });
 
-/*fis.match('/config/development.js', {
+fis.match('/config/development.js', {
     id: 'config',
     isMod: true,
     release: '/static/$0'
-});*/
+});
 
 fis.match('{/dep/mod.js,fis-conf.js}', {
     isMod: false
@@ -78,7 +77,7 @@ fis.match('*.vue', {
     postprocessor: fis.plugin('autoprefixer'),
     rExt: '.css'
 }).match('{api/**.js, store/**.js, src/**.js, config/**.js, *.vue:js, dep/nodelist.js}', {
-    parser: fis.plugin('babel-6.x', {
+    parser: fis.plugin('babel-5.x', {
         stage: 0
     }),
     rExt: '.js'
