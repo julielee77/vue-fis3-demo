@@ -115,7 +115,7 @@ fis.match('::packager', {
     })
 });
 
-fis.media('test')
+/*fis.media('test')
     .match('/config/test.js', {
         id: 'config',
         isMod: true,
@@ -123,10 +123,10 @@ fis.media('test')
     })
     .match('*', {
         deploy: fis.plugin('http-push', {
-            receiver: 'http://cp01-rdqa04-dev170.cp01.baidu.com:8080/static/receiver.php',
-            to: '/home/users/zhouqing02/console-server/public/assets'
+            receiver: '',
+            to: ''
         })
-    });
+    });*/
 
 // 生产环境下CSS、JS压缩合并
 // 使用方法 fis3 release prod
@@ -136,6 +136,12 @@ fis.media('prod')
         id: 'config',
         isMod: true,
         release: '/static/$0'
+    })
+    .match('/node_modules/**.js', {
+        parser: fis.plugin('babel-5.x', {
+            stage: 0
+        }),
+        rExt: '.js'
     })
     .match('**.png', {
         optimizer: fis.plugin('png-compressor')
@@ -149,6 +155,15 @@ fis.media('prod')
     })
     .match('dep/**.min.{js,css}', {
         optimizer: null
+    })
+    .match('*.{css,less}', {
+        optimizer: fis.plugin('clean-css')
+    })
+    .match('::image', {
+        useHash: true
+    })
+    .match('**.{vue,js,css}', {
+        useHash: true
     })
     .match('::package', {
         packager: fis.plugin('deps-pack', {
@@ -165,20 +180,10 @@ fis.media('prod')
             ]
         })
     })
-    .match('*.css', {
-        optimizer: fis.plugin('clean-css')
+/*.match('*', {
+    deploy: fis.plugin('http-push', {
+        receiver: '...',
+        to: '...'
     })
-    .match('::image', {
-        useHash: true
-    })
-    .match('**.{vue,js,css}', {
-        useHash: true
-    })
-    /*.match('*', {
-        deploy: fis.plugin('http-push', {
-            receiver: '...',
-            to: '...'
-        })
-    });*/
-    /* eslint-enable fecs-camelcase */
-
+});*/
+/* eslint-enable fecs-camelcase */

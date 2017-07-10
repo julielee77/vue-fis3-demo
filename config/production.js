@@ -1,6 +1,6 @@
 /**
 * @file config
-* @author XXX
+* @author julieLee77
 */
 
 export const API = {
