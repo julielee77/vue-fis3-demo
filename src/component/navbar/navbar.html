@@ -1,0 +1,12 @@
+<menu>
+    <ul>
+        <router-link
+            v-for="item in navs"
+            :key="item.path"
+            :to="item.path"
+            tag="li"
+            >
+            {{item.text}}
+        </router-link>
+    </ul>
+</menu>

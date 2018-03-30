@@ -4,6 +4,7 @@
  */
 
 import Vue from 'vue';
+
 export default {
     name: 'home',
 
@@ -11,12 +12,11 @@ export default {
 
     data() {
         return {
-
+            list: [{
+                title: 'Pagination',
+                path: ''
+            }]
         }
-    },
-
-    methods: {
-
     },
 
     mounted() {
