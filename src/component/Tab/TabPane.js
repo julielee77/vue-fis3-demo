@@ -14,10 +14,10 @@ export default {
     },
 
     props: {
-
+        title: 
     },
 
     methods: {
-        
+
     }
 } 
