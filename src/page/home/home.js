@@ -13,7 +13,7 @@ export default {
     data() {
         return {
             list: [{
-                title: 'Pagination',
+                title: '移动端Tab切换',
                 path: ''
             }]
         }

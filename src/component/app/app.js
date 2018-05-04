@@ -11,7 +11,6 @@ import {
 } from 'vuex-router-sync';
 import router from './router';
 import store from '/store';
-import Navbar from 'component/navbar'
 
 Vue.use(VueResource);
 
@@ -25,17 +24,9 @@ const app = new Vue({
 
     el: '#app',
 
-    components: {
-        Navbar
-    },
-
     data() {
         return {
             fullscreenLoading: true,
-            navs: [{
-                text: '首页',
-                path: '/'
-            }]
         };
     }
 });
